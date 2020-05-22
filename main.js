@@ -1,44 +1,44 @@
 
-// The Katas
-// 1. Add (1 point)
-// Write a function named "add" which takes two arguments (as input variables) and returns their sum.
-
-// You may use built-in operators in order to finish this kata.
-
-// For example, calling add(2, 4) should return a result of 6.
 
 function add(a, b){
     return a + b
 }
 console.log(add(5, 5))
 
-// 2. Multiply (2 points)
-// Write a function named "multiply" which takes two arguments (as input variables) and returns their product.
 
-// You may not use built-in math operators or functions (such as the * multiplication operator). Instead, you will use a FOR loop which calls your add function from the first kata.
 
-// For example, calling multiply(6, 4) should return a result of 24, which could be expressed by adding 6 to itself 4 times:
+function multiply(a, b){
+    let result = 0
+    for(let index = 0; index < b; index += 1){
+        result = add(result, a)
+    }
+    return result
+}
+console.log(multiply(6, 4))
 
-// 6 + 6 + 6 + 6 = 24
-// 3. Power/Exponentiation (2 points)
-// Write a function named "power" which takes two arguments ( x and n) and returns the the result of raising x to the nth power.
 
-// You may not use built-in math operators or functions (such as the * multiplication operator), or the ** operator for power/exponentiation). Instead, you will re-use functions you wrote in earlier katas to write this function.
 
-// For example, if we called power(2, 8), we should return 256 by multiplying 2 by itself 8 times:
+function power(x, n){
+    let poweredNumber = x
+    for(let index = 1; index < n; index += 1){
+       poweredNumber =  multiply(poweredNumber, x)
+    }
+    return poweredNumber
+}
+console.log(power(3, 4))
 
-// 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 = 256
-// And to achieve the correct result for power(3, 4), we would want to multiply 3 by itself 4 times:
 
-// 3 * 3 * 3 * 3 = 81
-// See this Wikipedia article for more details on exponentiation.
 
-// 4. Factorial (2 points)
-// Write a function named "factorial" which takes a single argument and returns the factorial of that value.
-
-// You may not use built-in math operators or functions (such as the * multiplication operator). Instead, you will re-use functions you wrote in earlier katas to write this function.
-
-// A factorial multiplies a given number by every number below it. For example, "5 factorial" (usually symbolized by 5! in Mathematics) would be:
+function factorial(z){
+    let newFactor = add(z, -1)
+    let factoredNumber = z
+    for(let index = 1; index < z; index += 1){
+        factoredNumber =  multiply(factoredNumber, newFactor)
+        newFactor -= 1
+    } 
+    return factoredNumber
+}
+console.log(factorial(4))
 
 // 5 * 4 * 3 * 2 * 1 = 120
 // For example, calling factorial(4) should return a result of 24.
