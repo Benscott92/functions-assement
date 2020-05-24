@@ -53,6 +53,26 @@ console.log(factorial(4))
 // 0  1  1  2  3  5  8  [13]  21
 // So, the number in brackets is the 8th Fibonacci number.
 
+function fibonacci(n){
+    let a = 0
+    let b = 1
+    for(let index = 2; index < n; index += 1){
+
+        let fib = add(a, b)
+        a = b
+        b = fib
+    }
+    if(n === 2){
+        return 1
+    }
+    else if(n === 1){
+        return 0
+    }
+    return b
+}
+console.log(fibonacci(4))
+
+
 // Hints
 // The answers to most of these katas will look similar. They will typically involve:
 // declaring a variable to keep track of a final result
